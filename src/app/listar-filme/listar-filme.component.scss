@@ -1,0 +1,93 @@
+section {
+  > .pesquisa-adicao-filmes {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    padding: 16px 0;
+
+    > .pesquisa-filme {
+      align-items: center;
+      border: 1px solid #000;
+      border-radius: 5px;
+      display: flex;
+      gap: 8px;
+      padding: 4px;
+      height: 30px;
+      width: 27%;
+
+      > input {
+        border: none;
+        height: 28px;
+        width: 100%;
+
+        &:focus {
+          box-shadow: 0 0 0 0;
+          outline: 0;
+        }
+      }
+    }
+
+    > button {
+      align-items: center;
+      background: #000;
+      border: 1px solid #000;
+      border-radius: 50px;
+      display: flex;
+      height: 30px;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+  > .cards-filmes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+
+    > section {
+      border: 1px solid #d4d4d4;
+      box-shadow: 5px 7px 7px 0px #c4c4c4;
+      border-radius: 5px;
+      padding: 8px 16px;
+      height: 150px;
+      width: 469.5px;
+
+      > .editar-excluir-filme {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+
+        > .fa-trash {
+          cursor: pointer;
+
+          &:hover {
+            color: red;
+          }
+        }
+      }
+
+      > .card-filme {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        > h2 {
+          margin:  0;
+          text-align: center;
+        }
+
+        > div {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 16px;
+        }
+      }
+    }
+  }
+}

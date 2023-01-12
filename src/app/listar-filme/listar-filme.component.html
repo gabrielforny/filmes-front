@@ -1,0 +1,49 @@
+<section>
+  <section class="pesquisa-adicao-filmes">
+    <div class="pesquisa-filme">
+      <input
+        type="search"
+        placeholder="Pesquise por nome do filme, gênero ou duração."
+        [(ngModel)]="filterTerm">
+      <i class="fa fa-search"></i>
+    </div>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCadastroFilme">
+      Adicionar
+    </button>
+  </section>
+
+  <section class="cards-filmes">
+    <section *ngFor="let item of listaFilmes | filter: filterTerm">
+      <div class="editar-excluir-filme">
+        <i class="fa fa-pencil-square-o" title="Editar filme"></i>
+        <i class="fa fa-trash" title="Excluir filme" (click)="salvarIdFilme(item.id)" data-toggle="modal" data-target="#modalExcluirFilme"></i>
+      </div>
+
+      <div class="card-filme">
+        <h2>{{item.titulo}}</h2>
+        <p>Gênero: {{item.genero}}</p>
+        <p>Duração: {{item.duracao}} minutos</p>
+      </div>
+    </section>
+  </section>
+
+  <div class="modal fade" id="modalCadastroFilme" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <app-criar-filme></app-criar-filme>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalExcluirFilme" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <app-excluir-filme
+          [id]="idParaExclusao"
+        ></app-excluir-filme>
+      </div>
+    </div>
+  </div>
+</section>
+

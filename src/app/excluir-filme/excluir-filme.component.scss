@@ -1,0 +1,61 @@
+section {
+  > header {
+    align-items: center;
+    background: #000;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 18px;
+
+    > h4 {
+      color: #ffff;
+      font-size: 18px;
+      margin: 0;
+    }
+
+    > i {
+      color: #ffff;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 100;
+    }
+  }
+
+  > body {
+    padding: 18px;
+
+    > p {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 500;
+      color: #000;
+    }
+  }
+
+  > footer {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    padding: 0 18px 18px 0;
+
+    > button {
+      align-self: center;
+      color: #ffff;
+      display: flex;
+      font-size: 13px;
+      padding: 6px 10px;
+
+     &.btn-fechar {
+        background: black;
+      }
+
+      &.btn-cadastrar {
+        background: red;
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+}

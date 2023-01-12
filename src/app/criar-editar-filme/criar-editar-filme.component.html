@@ -1,0 +1,29 @@
+<section>
+  <header>
+    <h4>Cadastro de Filme</h4>
+    <i class="fa fa-times" data-dismiss="modal"></i>
+  </header>
+
+  <form [formGroup]="filmeForm">
+    <fieldset>
+      <legend>Título do filme</legend>
+      <input class="form-control" name="titulo" id="titulo" type="text" formControlName="titulo" placeholder="Ex: Indiana Jones"/>
+    </fieldset>
+
+    <fieldset>
+      <legend>Gênero</legend>
+      <input class="form-control" name="genero" id="genero" type="text" formControlName="genero" placeholder="Ex: Aventura"/>
+    </fieldset>
+
+    <fieldset>
+      <legend>Duração em minutos</legend>
+      <input class="form-control" name="duracao" id="duracao" type="number" formControlName="duracao" placeholder="Ex: 130"/>
+    </fieldset>
+
+    <footer>
+      <button type="button" class="btn btn-fechar" data-dismiss="modal">Fechar</button>
+      <button type="button" class="btn btn-cadastrar" [disabled]="!filmeForm.valid" (click)="cadastrarFilme()">Cadastrar</button>
+    </footer>
+  </form>
+</section>
+
