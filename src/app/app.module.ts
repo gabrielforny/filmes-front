@@ -1,16 +1,17 @@
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserModule } from '@angular/platform-browser';
 import { CriarFilmeComponent } from './criar-editar-filme/criar-editar-filme.component';
 import { ExcluirFilmeComponent } from './excluir-filme/excluir-filme.component';
-import { ListarFilmeComponent } from './listar-filme/listar-filme.component';
-import {HttpClientModule} from '@angular/common/http';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListarFilmeComponent } from './listar-filme/listar-filme.component';
+import { NgModule } from '@angular/core';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ToastrModule } from 'ngx-toastr';
 import { HeaderComponent } from './header/header.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,13 +22,19 @@ import { HeaderComponent } from './header/header.component';
     HeaderComponent,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    Ng2SearchPipeModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    FontAwesomeModule,
     FormsModule,
-    FontAwesomeModule
+    ReactiveFormsModule,
+    Ng2SearchPipeModule,
+    ToastrModule.forRoot({
+      positionClass :'toast-top-right',
+      timeOut: 200000,
+      closeButton: true
+    }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

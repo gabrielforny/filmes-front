@@ -45,6 +45,16 @@ section {
         &:focus {
           box-shadow: none;
         }
+
+        &.error {
+          border: 1px solid red;
+        }
+      }
+
+      > span {
+        color: red;
+        font-size: 13px;
+        font-weight: bold;
       }
     }
 

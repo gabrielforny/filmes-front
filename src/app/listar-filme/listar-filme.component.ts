@@ -12,6 +12,7 @@ export class ListarFilmeComponent {
   @Input() filterTerm: string;
 
   public listaFilmes: Array<Filmes> = [];
+  public listaFilmesCadastrados = [];
   public idParaExclusao: number;
   public mostrCampoAdicionarFilme: boolean;
 
@@ -29,8 +30,9 @@ export class ListarFilmeComponent {
 
   public obterListaDeFilmes() {
     this.filmesService.obterFilmes().subscribe(res => {
-      this.listaFilmes = res,
-      error => console.log(error);
+      this.listaFilmes = res
+
+      this.listaFilmesCadastrados = this.listaFilmes;
     })
   }
 

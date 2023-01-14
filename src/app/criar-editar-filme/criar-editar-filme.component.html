@@ -17,12 +17,13 @@
 
     <fieldset>
       <legend>Duração em minutos</legend>
-      <input class="form-control" name="duracao" id="duracao" type="number" formControlName="duracao" placeholder="Ex: 130"/>
+      <input [ngClass]="{'error': mensagemErrorDuracao == 1}" class="form-control" name="duracao" id="duracao" type="number" formControlName="duracao" placeholder="Ex: 130" (keyup)="verificarDuracao()"/>
+      <span *ngIf="mensagemErrorDuracao == 1">Duração não pode ser menor que 70, nem maior que 600.</span>
     </fieldset>
 
     <footer>
       <button type="button" class="btn btn-fechar" data-dismiss="modal">Fechar</button>
-      <button type="button" class="btn btn-cadastrar" [disabled]="!filmeForm.valid" (click)="cadastrarFilme()">Cadastrar</button>
+      <button type="button" class="btn btn-cadastrar" [disabled]="!filmeForm.valid || mensagemErrorDuracao == 1" (click)="cadastrarFilme()">Cadastrar</button>
     </footer>
   </form>
 </section>

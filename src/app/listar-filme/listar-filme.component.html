@@ -31,7 +31,7 @@
   <div class="modal fade" id="modalCadastroFilme" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
-        <app-criar-filme></app-criar-filme>
+        <app-criar-editar-filme [listaFilmes]="listaFilmesCadastrados"></app-criar-editar-filme>
       </div>
     </div>
   </div>
@@ -39,9 +39,7 @@
   <div class="modal fade" id="modalExcluirFilme" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
-        <app-excluir-filme
-          [id]="idParaExclusao"
-        ></app-excluir-filme>
+        <app-excluir-filme [id]="idParaExclusao"></app-excluir-filme>
       </div>
     </div>
   </div>
