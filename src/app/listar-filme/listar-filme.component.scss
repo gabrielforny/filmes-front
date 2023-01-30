@@ -62,7 +62,8 @@ section {
         justify-content: flex-end;
         gap: 8px;
 
-        > .fa-trash {
+        > .fa-trash,
+        .fa-pencil-square-o {
           cursor: pointer;
 
           &:hover {

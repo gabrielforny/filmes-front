@@ -1,7 +1,7 @@
 <section>
   <header>
     <h4>Deseja excluir esse filme?</h4>
-    <i class="fa fa-times" data-dismiss="modal"></i>
+    <i class="fa fa-times" (click)="fecharModal()"></i>
   </header>
 
   <body>
@@ -9,7 +9,7 @@
   </body>
 
   <footer>
-    <button type="button" class="btn btn-fechar" data-dismiss="modal">Cancelar</button>
+    <button type="button" class="btn btn-fechar" (click)="fecharModal()">Cancelar</button>
     <button type="button" class="btn btn-cadastrar" (click)="excluirFilme(id)">Excluir</button>
   </footer>
 </section>

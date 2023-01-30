@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FilmesService } from '../services/filmes.service';
+import { NotificacaoService } from '../services/notificacao.service';
 
 @Component({
   selector: 'app-excluir-filme',
@@ -11,14 +13,25 @@ export class ExcluirFilmeComponent {
   @Input() id: number;
 
   constructor(
-    private filmesService: FilmesService
+    private filmesService: FilmesService,
+    private notificacaoService: NotificacaoService,
+    private modalService: NgbModal
   ) {}
 
   public excluirFilme(id: number) {
-    this.filmesService.excluirFilme(id).subscribe(() => {
-      location.reload();
+    this.filmesService.deletarFilme(id).subscribe(() => {
+      this.notificacaoService.toastrSuccess("Filme removido com sucesso!");
+
+      setTimeout(function() {
+        location.reload();
+      }, 1500)
     },
       error => console.log(error)
     );
+  }
+
+  public fecharModal() {
+    this.id = undefined;
+    this.modalService.dismissAll();
   }
 }

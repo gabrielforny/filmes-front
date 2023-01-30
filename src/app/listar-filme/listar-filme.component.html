@@ -8,7 +8,7 @@
       <i class="fa fa-search"></i>
     </div>
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCadastroFilme">
+    <button type="button" class="btn btn-primary" (click)="openCadastrar(modalCadastrar)">
       Adicionar
     </button>
   </section>
@@ -16,8 +16,8 @@
   <section class="cards-filmes">
     <section *ngFor="let item of listaFilmes | filter: filterTerm">
       <div class="editar-excluir-filme">
-        <i class="fa fa-pencil-square-o" title="Editar filme"></i>
-        <i class="fa fa-trash" title="Excluir filme" (click)="salvarIdFilme(item.id)" data-toggle="modal" data-target="#modalExcluirFilme"></i>
+        <i class="fa fa-pencil-square-o" title="Editar filme" (click)="openCadastrar(modalEditar, item.id)"></i>
+        <i class="fa fa-trash" title="Excluir filme" (click)="openCadastrar(modalDeletar, item.id)"></i>
       </div>
 
       <div class="card-filme">
@@ -28,20 +28,16 @@
     </section>
   </section>
 
-  <div class="modal fade" id="modalCadastroFilme" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <app-criar-editar-filme [listaFilmes]="listaFilmesCadastrados"></app-criar-editar-filme>
-      </div>
-    </div>
-  </div>
+  <ng-template #modalCadastrar let-modal>
+    <app-criar-editar-filme [listaFilmes]="listaFilmesCriados"></app-criar-editar-filme>
+  </ng-template>
 
-  <div class="modal fade" id="modalExcluirFilme" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <app-excluir-filme [id]="idParaExclusao"></app-excluir-filme>
-      </div>
-    </div>
-  </div>
+  <ng-template #modalEditar let-modal>
+    <app-criar-editar-filme [listaFilmes]="listaFilmesCriados" [id]="filmeId"></app-criar-editar-filme>
+  </ng-template>
+
+  <ng-template #modalDeletar let-modal>
+    <app-excluir-filme [id]="filmeId"></app-excluir-filme>
+  </ng-template>
 </section>
 

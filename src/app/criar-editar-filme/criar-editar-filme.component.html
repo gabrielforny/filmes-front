@@ -1,7 +1,7 @@
 <section>
   <header>
-    <h4>Cadastro de Filme</h4>
-    <i class="fa fa-times" data-dismiss="modal"></i>
+    <h4>{{titleModal}} de Filme</h4>
+    <i class="fa fa-times" (click)="fecharModal()"></i>
   </header>
 
   <form [formGroup]="filmeForm">
@@ -13,6 +13,7 @@
     <fieldset>
       <legend>Gênero</legend>
       <input class="form-control" name="genero" id="genero" type="text" formControlName="genero" placeholder="Ex: Aventura"/>
+      <span>Gênero não pode ter mais de 50 caracteres</span>
     </fieldset>
 
     <fieldset>
@@ -22,8 +23,8 @@
     </fieldset>
 
     <footer>
-      <button type="button" class="btn btn-fechar" data-dismiss="modal">Fechar</button>
-      <button type="button" class="btn btn-cadastrar" [disabled]="!filmeForm.valid || mensagemErrorDuracao == 1" (click)="cadastrarFilme()">Cadastrar</button>
+      <button type="button" class="btn btn-fechar" (click)="fecharModal()">Fechar</button>
+      <button type="button" class="btn btn-cadastrar" [disabled]="!filmeForm.valid || mensagemErrorDuracao == 1" (click)="ehCadastroOuEdicao()">{{buttonName}}</button>
     </footer>
   </form>
 </section>
