@@ -1,1 +1,14 @@
-<p>header works!</p>
+<section>
+  <i class="fa fa-film" aria-hidden="true"></i>
+
+  <h2>GALERIA DE FILMES</h2>
+
+  <button type="button" class="btn btn-adicionar" (click)="openCadastrar(modalCadastrar)">
+    Adicionar
+  </button>
+</section>
+
+
+<ng-template #modalCadastrar let-modal>
+  <app-criar-editar-filme></app-criar-editar-filme>
+</ng-template>

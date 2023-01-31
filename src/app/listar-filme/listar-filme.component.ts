@@ -12,7 +12,6 @@ export class ListarFilmeComponent {
 
   @Input() filterTerm: string;
 
-  public listaFilmes: Array<Filmes> = [];
   public listaFilmesCriados = [];
   public filmeId: number;
 
@@ -29,9 +28,7 @@ export class ListarFilmeComponent {
 
   public obterListaDeFilmes() {
     this.filmesService.obterFilmes().subscribe(res => {
-      this.listaFilmes = res
-
-      this.listaFilmesCriados = this.listaFilmes;
+      this.listaFilmesCriados = res
     })
   }
 

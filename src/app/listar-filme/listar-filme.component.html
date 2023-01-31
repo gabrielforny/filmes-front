@@ -1,5 +1,5 @@
 <section>
-  <section class="pesquisa-adicao-filmes">
+  <section class="pesquisa-adicao-filmes" *ngIf="listaFilmesCriados.length >= 1">
     <div class="pesquisa-filme">
       <input
         type="search"
@@ -7,30 +7,41 @@
         [(ngModel)]="filterTerm">
       <i class="fa fa-search"></i>
     </div>
+  </section>
 
-    <button type="button" class="btn btn-primary" (click)="openCadastrar(modalCadastrar)">
-      Adicionar
-    </button>
+  <section class="nao-ha-filmes" *ngIf="listaFilmesCriados.length < 1">
+    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+    <span>Não há filmes cadastrados</span>
   </section>
 
   <section class="cards-filmes">
-    <section *ngFor="let item of listaFilmes | filter: filterTerm">
-      <div class="editar-excluir-filme">
-        <i class="fa fa-pencil-square-o" title="Editar filme" (click)="openCadastrar(modalEditar, item.id)"></i>
-        <i class="fa fa-trash" title="Excluir filme" (click)="openCadastrar(modalDeletar, item.id)"></i>
-      </div>
+    <section *ngFor="let item of listaFilmesCriados | filter: filterTerm">
 
       <div class="card-filme">
-        <h2>{{item.titulo}}</h2>
-        <p>Gênero: {{item.genero}}</p>
-        <p>Duração: {{item.duracao}} minutos</p>
+        <div class="front">
+          <h2>{{item.titulo}}</h2>
+          <div>
+            <p>Gênero: {{item.genero}}</p>
+            <p>Duração: {{item.duracao}} minutos</p>
+          </div>
+        </div>
+
+        <div class="back">
+          <div class="editar">
+            <i class="fa fa-pencil-square-o" title="Editar filme" (click)="openCadastrar(modalEditar, item.id)"></i>
+            <p (click)="openCadastrar(modalEditar, item.id)">Editar</p>
+          </div>
+          <div class="excluir">
+            <i class="fa fa-trash" title="Excluir filme" (click)="openCadastrar(modalDeletar, item.id)"></i>
+            <p (click)="openCadastrar(modalEditar, item.id)">Excluir</p>
+          </div>
+        </div>
       </div>
+
+
+
     </section>
   </section>
-
-  <ng-template #modalCadastrar let-modal>
-    <app-criar-editar-filme [listaFilmes]="listaFilmesCriados"></app-criar-editar-filme>
-  </ng-template>
 
   <ng-template #modalEditar let-modal>
     <app-criar-editar-filme [listaFilmes]="listaFilmesCriados" [id]="filmeId"></app-criar-editar-filme>

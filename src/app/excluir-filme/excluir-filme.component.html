@@ -4,12 +4,17 @@
     <i class="fa fa-times" (click)="fecharModal()"></i>
   </header>
 
-  <body>
+  <body *ngIf="loading === false">
     <p>Caso esse filme seja excluído, ele não será mais apresentado na lista e não podendo desfazer a mudança</p>
   </body>
 
-  <footer>
+  <footer *ngIf="loading === false">
     <button type="button" class="btn btn-fechar" (click)="fecharModal()">Cancelar</button>
     <button type="button" class="btn btn-cadastrar" (click)="excluirFilme(id)">Excluir</button>
   </footer>
+
+  <div class="loader-carregar" *ngIf="loading === true">
+    <h2>Excluindo filme</h2>
+    <span class="loader"></span>
+  </div>
 </section>

@@ -28,19 +28,6 @@ section {
         }
       }
     }
-
-    > button {
-      align-items: center;
-      background: #000;
-      border: 1px solid #000;
-      border-radius: 50px;
-      display: flex;
-      height: 30px;
-
-      &:focus {
-        box-shadow: none;
-      }
-    }
   }
 
   > .cards-filmes {
@@ -53,42 +40,112 @@ section {
       border: 1px solid #d4d4d4;
       box-shadow: 5px 7px 7px 0px #c4c4c4;
       border-radius: 5px;
-      padding: 8px 16px;
-      height: 150px;
+      padding: 10px 16px;
+      height: 140px;
       width: 469.5px;
 
-      > .editar-excluir-filme {
-        display: flex;
-        justify-content: flex-end;
-        gap: 8px;
-
-        > .fa-trash,
-        .fa-pencil-square-o {
-          cursor: pointer;
-
-          &:hover {
-            color: red;
-          }
-        }
-      }
+      perspective: 1000px;
 
       > .card-filme {
         align-items: center;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding: 16px 0 0 0;
 
-        > h2 {
-          margin:  0;
-          text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+        position: relative;
+
+        > .front, .back{
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          backface-visibility: hidden;
         }
 
-        > div {
+        > .front {
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          padding: 90px 0 0 0;
+          justify-content: center;
+
+          > h2 {
+            font-size: 22px;
+            font-weight: bold;
+          }
+
+          > div {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+          }
+        }
+
+        > .back {
+          align-items: center;
           display: flex;
           flex-wrap: wrap;
-          gap: 16px;
+          justify-content: space-evenly;
+          padding: 40px 0 0 0;
+          transform: rotateY(180deg);
+
+          > .editar, .excluir {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+
+            > i {
+              cursor: pointer;
+              font-size: 30px;
+
+              &:hover {
+                color: red;
+              }
+            }
+
+            > p {
+              cursor: pointer;
+              font-size: 14px;
+              font-weight: 400;
+              margin: 0;
+            }
+          }
         }
+      }
+
+      &:hover .card-filme {
+        transform: rotateY(180deg);
       }
     }
   }
+
+  > .nao-ha-filmes {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    justify-content: center;
+    height: 70vh;
+
+    > i {
+      color: yellow;
+      font-size: 50px;
+    }
+
+    > p {
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+}
+
+
+
+
+.flip-container:hover .flipper{
+	transform: rotateY(180deg);
 }

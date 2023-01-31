@@ -12,6 +12,8 @@ export class ExcluirFilmeComponent {
 
   @Input() id: number;
 
+  loading: boolean = false;
+
   constructor(
     private filmesService: FilmesService,
     private notificacaoService: NotificacaoService,
@@ -21,6 +23,8 @@ export class ExcluirFilmeComponent {
   public excluirFilme(id: number) {
     this.filmesService.deletarFilme(id).subscribe(() => {
       this.notificacaoService.toastrSuccess("Filme removido com sucesso!");
+
+      this.loading = true;
 
       setTimeout(function() {
         location.reload();

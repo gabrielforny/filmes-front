@@ -20,6 +20,9 @@ export class CriarFilmeComponent {
 
   filmeEditar: any;
 
+  loading: boolean = false;
+  conteudoModalLoagind: string;
+
   @Input() listaFilmes = [];
   @Input() id: number;
 
@@ -73,6 +76,9 @@ export class CriarFilmeComponent {
     this.filmesService.criarFilme(novoFilme).subscribe(() => {
       this.notificacaoService.toastrSuccess("Filme adicionado com sucesso!");
 
+      this.conteudoModalLoagind = 'Criando filme';
+      this.loading = true;
+
       setTimeout(function() {
         location.reload();
       }, 1500)
@@ -86,6 +92,9 @@ export class CriarFilmeComponent {
 
     this.filmesService.atualizarFilme(id, novoFilme).subscribe(() => {
       this.notificacaoService.toastrSuccess("Filme atualizado com sucesso!");
+
+      this.conteudoModalLoagind = 'Editando filme';
+      this.loading = true;
 
       setTimeout(function() {
         location.reload();

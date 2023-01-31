@@ -6,3 +6,9 @@
   -moz-appearance: none;
   appearance: none;
 }
+
+.modal-dialog {
+  align-items: center;
+  display: flex;
+  height: 92%;
+}

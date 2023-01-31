@@ -1,10 +1,10 @@
-<section>
+<section class="formulario">
   <header>
     <h4>{{titleModal}} de Filme</h4>
     <i class="fa fa-times" (click)="fecharModal()"></i>
   </header>
 
-  <form [formGroup]="filmeForm">
+  <form [formGroup]="filmeForm" *ngIf="loading === false">
     <fieldset>
       <legend>Título do filme</legend>
       <input class="form-control" name="titulo" id="titulo" type="text" formControlName="titulo" placeholder="Ex: Indiana Jones"/>
@@ -27,5 +27,11 @@
       <button type="button" class="btn btn-cadastrar" [disabled]="!filmeForm.valid || mensagemErrorDuracao == 1" (click)="ehCadastroOuEdicao()">{{buttonName}}</button>
     </footer>
   </form>
+
+  <div class="loader-carregar" *ngIf="loading === true">
+    <h2>{{conteudoModalLoagind}}</h2>
+    <span class="loader"></span>
+  </div>
 </section>
+
 

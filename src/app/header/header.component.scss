@@ -1,0 +1,40 @@
+section {
+  align-items: center;
+  background-color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 16px 24px;
+
+  > i {
+    color: white;
+    font-size: 30px;
+  }
+
+  > h2 {
+    color: red;
+    font-size: 25px;
+    margin: 0;
+  }
+
+  > button {
+    align-items: center;
+    background: white;
+    border: 1px solid #000;
+    color: black;
+    border-radius: 50px;
+    display: flex;
+    height: 30px;
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:hover {
+      background: red;
+      color: white;
+      border: 1px solid white;
+    }
+  }
+}
+
