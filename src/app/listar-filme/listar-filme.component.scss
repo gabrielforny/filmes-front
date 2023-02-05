@@ -5,7 +5,7 @@ section {
     flex-wrap: wrap;
     gap: 16px;
     justify-content: center;
-    padding: 16px 0;
+    padding: 30px 0;
 
     > .pesquisa-filme {
       align-items: center;
@@ -26,6 +26,34 @@ section {
           box-shadow: 0 0 0 0;
           outline: 0;
         }
+      }
+    }
+
+    > .btn-filtrar {
+      background: transparent;
+      border: 1px solid black;
+      border-radius: 5px;
+      height: 30px;
+      width: 65px;
+    }
+
+    > .filtro {
+      display: flex;
+      gap: 16px;
+
+      > select {
+        border: 1px solid #000;
+        border-radius: 5px;
+        padding: 0 8px 0 8px;
+        height: 31px;
+      }
+
+      > .btn-limpar-filtro {
+        background: transparent;
+        border: 1px solid black;
+        border-radius: 5px;
+        height: 30px;
+        width: 65px;
       }
     }
   }
@@ -53,7 +81,7 @@ section {
         justify-content: center;
         padding: 16px 0 0 0;
 
-        transition: transform 0.8s;
+        transition: transform 1.5s;
         transform-style: preserve-3d;
         position: relative;
 

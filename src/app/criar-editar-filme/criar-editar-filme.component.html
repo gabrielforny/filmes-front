@@ -13,7 +13,7 @@
     <fieldset>
       <legend>Gênero</legend>
       <input class="form-control" name="genero" id="genero" type="text" formControlName="genero" placeholder="Ex: Aventura"/>
-      <span>Gênero não pode ter mais de 50 caracteres</span>
+      <span *ngIf="filmeForm.get('genero')?.errors?.['required']">Gênero não pode ter mais de 50 caracteres</span>
     </fieldset>
 
     <fieldset>

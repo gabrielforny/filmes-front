@@ -13,6 +13,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ExcluirFilmeComponent,
     ListarFilmeComponent,
     HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     AppRoutingModule,

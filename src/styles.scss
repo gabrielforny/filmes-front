@@ -7,8 +7,33 @@
   appearance: none;
 }
 
+body {
+  height: 100vh;
+}
+
 .modal-dialog {
   align-items: center;
   display: flex;
   height: 92%;
+}
+
+/* scroll no Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: red black;
+}
+
+/* scroll no Chrome, Edge, e Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: black;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: red;
+  border-radius: 20px;
+  border: 3px solid black;
 }

@@ -15,7 +15,11 @@ export class ListarFilmeComponent {
   public listaFilmesCriados = [];
   public filmeId: number;
 
+  public escolhaFiltro: string = "";
+
   closeResult: string = '';
+
+  public mostrarFiltro: boolean;
 
   constructor(
     private filmesService: FilmesService,
@@ -28,11 +32,75 @@ export class ListarFilmeComponent {
 
   public obterListaDeFilmes() {
     this.filmesService.obterFilmes().subscribe(res => {
-      this.listaFilmesCriados = res
+      this.listaFilmesCriados = res;
     })
   }
 
-  openCadastrar(content:any, id?: number) {
+  public abrirFiltro() {
+    this.mostrarFiltro = !this.mostrarFiltro
+  }
+
+  public limparFiltro() {
+    this.abrirFiltro();
+    this.obterListaDeFilmes();
+  }
+
+  public tipoOrdenacao() {
+    switch(this.escolhaFiltro) {
+      case "1":
+        this.ordenarPorTitulo();
+      break;
+
+      case "2":
+        this.ordenarPorGenero();
+      break;
+
+      case "3":
+        this.ordenarPorDuracao();
+      break;
+    }
+  }
+
+  public ordenarPorTitulo() {
+
+    this.listaFilmesCriados.sort(function (a, b) {
+      if (a.titulo.toUpperCase() > b.titulo.toUpperCase()) {
+        return 1;
+      }
+      if (a.titulo.toUpperCase() < b.titulo.toUpperCase()) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+
+  public ordenarPorGenero() {
+    this.listaFilmesCriados.sort(function (a, b) {
+      if (a.genero.toUpperCase() > b.genero.toUpperCase()) {
+        return 1;
+      }
+      if (a.genero.toUpperCase() < b.genero.toUpperCase()) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+
+  public ordenarPorDuracao() {
+    this.listaFilmesCriados.sort(function (a, b) {
+      if (a.duracao > b.duracao) {
+        return 1;
+      }
+      if (a.duracao < b.duracao) {
+        return -1;
+      }
+      return 0;
+    });
+
+    this.listaFilmesCriados;
+  }
+
+  public openCadastrar(content:any, id?: number) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     });

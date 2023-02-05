@@ -4,9 +4,9 @@
     <i class="fa fa-times" (click)="fecharModal()"></i>
   </header>
 
-  <body *ngIf="loading === false">
-    <p>Caso esse filme seja excluído, ele não será mais apresentado na lista e não podendo desfazer a mudança</p>
-  </body>
+  <div *ngIf="loading === false">
+    <p>Caso esse filme seja excluído, ele não será mais apresentado na lista e não será possível desfazer a mudança.</p>
+  </div>
 
   <footer *ngIf="loading === false">
     <button type="button" class="btn btn-fechar" (click)="fecharModal()">Cancelar</button>

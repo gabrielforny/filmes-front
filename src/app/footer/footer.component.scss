@@ -1,0 +1,17 @@
+section {
+  background: black;
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+  margin: 40px 0 -8px 0;
+  position: fixed;
+  top: 90vh;
+  width: 100%;
+
+  > h2 {
+    color: white;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin: 0;
+  }
+}
