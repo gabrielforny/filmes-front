@@ -42,6 +42,7 @@ export class ListarFilmeComponent {
 
   public limparFiltro() {
     this.abrirFiltro();
+    this.escolhaFiltro = "";
     this.obterListaDeFilmes();
   }
 

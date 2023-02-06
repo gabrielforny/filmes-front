@@ -8,19 +8,19 @@
       <i class="fa fa-search"></i>
     </div>
 
-    <button *ngIf="!mostrarFiltro" class="btn-filtrar" (click)="abrirFiltro()">
+    <button *ngIf="!mostrarFiltro" class="draw-border" (click)="abrirFiltro()">
       Filtrar
     </button>
 
     <div class="filtro" *ngIf="mostrarFiltro">
       <select [(ngModel)]="escolhaFiltro" (ngModelChange)="tipoOrdenacao()">
-        <option value="" disabled selected="selected">Selecione...</option>
+        <option value="" disabled selected="selected">filtrar por...</option>
         <option value="1">Titulo</option>
         <option value="2">genero</option>
         <option value="3">duracao</option>
       </select>
 
-      <button clas="btn-limpar-filtro" (click)="limparFiltro()">Limpar Filtro</button>
+      <button class="btn-limpar-filtro" (click)="limparFiltro()">Limpar Filtro</button>
     </div>
   </section>
 
