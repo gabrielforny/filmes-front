@@ -1,5 +1,5 @@
 # FilmesFront
-Projeto de estudo comunicando o front com o back end de web-api (https://github.com/gabrielforny/web-api-filmes). Onde no front lista, cria, edita e exclui os filmes tudo integrado também ao banc de dados (MySql Workbench).
+Projeto CRUD de estudo comunicando o front com o back end de web-api (https://github.com/gabrielforny/web-api-filmes). Onde no front lista, cria, edita e exclui os filmes tudo integrado também ao banc de dados (MySql Workbench).
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
