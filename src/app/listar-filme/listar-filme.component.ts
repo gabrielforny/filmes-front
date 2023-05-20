@@ -19,8 +19,6 @@ export class ListarFilmeComponent {
 
   closeResult: string = '';
 
-  public mostrarFiltro: boolean;
-
   constructor(
     private filmesService: FilmesService,
     private modalService: NgbModal
@@ -34,16 +32,6 @@ export class ListarFilmeComponent {
     this.filmesService.obterFilmes().subscribe(res => {
       this.listaFilmesCriados = res;
     })
-  }
-
-  public abrirFiltro() {
-    this.mostrarFiltro = !this.mostrarFiltro
-  }
-
-  public limparFiltro() {
-    this.abrirFiltro();
-    this.escolhaFiltro = "";
-    this.obterListaDeFilmes();
   }
 
   public tipoOrdenacao() {

@@ -9,13 +9,13 @@ section {
 
     > .pesquisa-filme {
       align-items: center;
-      border: 3px solid #000;
+      border: 2px solid #000;
       border-radius: 5px;
       display: flex;
       gap: 8px;
       padding: 4px;
       height: 30px;
-      width: 27%;
+      width: 40%;
 
       > input {
         border: none;
@@ -27,6 +27,23 @@ section {
           outline: 0;
         }
       }
+
+      > select {
+        border: none;
+        border: none;
+    width: 100px;
+    z-index: 999;
+
+    &:focus-visible {
+      width: 145px;
+    }
+      }
+
+      > i {
+        position: relative;
+        z-index: 999;
+      }
+
     }
 
     > .btn-filtrar {
@@ -40,13 +57,6 @@ section {
     > .filtro {
       display: flex;
       gap: 16px;
-
-      > select {
-        border: 3px solid #000;
-        border-radius: 5px;
-        padding: 0 8px 0 8px;
-        height: 31px;
-      }
 
       > .btn-limpar-filtro {
         align-items: center;

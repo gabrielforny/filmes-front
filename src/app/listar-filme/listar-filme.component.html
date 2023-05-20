@@ -1,18 +1,6 @@
 <section>
-  <section class="pesquisa-adicao-filmes" *ngIf="listaFilmesCriados.length >= 1">
+  <section class="pesquisa-adicao-filmes">
     <div class="pesquisa-filme">
-      <input
-        type="search"
-        placeholder="Pesquise por nome do filme, gênero ou duração."
-        [(ngModel)]="filterTerm">
-      <i class="fa fa-search"></i>
-    </div>
-
-    <button *ngIf="!mostrarFiltro" class="draw-border" (click)="abrirFiltro()">
-      Filtrar
-    </button>
-
-    <div class="filtro" *ngIf="mostrarFiltro">
       <select [(ngModel)]="escolhaFiltro" (ngModelChange)="tipoOrdenacao()">
         <option value="" disabled selected="selected">filtrar por...</option>
         <option value="1">Titulo</option>
@@ -20,7 +8,13 @@
         <option value="3">duracao</option>
       </select>
 
-      <button class="btn-limpar-filtro" (click)="limparFiltro()">Limpar Filtro</button>
+      <i class="fa fa-caret-down" aria-hidden="true" ></i>
+
+      <input
+        type="search"
+        placeholder="Pesquise por nome do filme, gênero ou duração."
+        [(ngModel)]="filterTerm">
+      <i class="fa fa-search"></i>
     </div>
   </section>
 
